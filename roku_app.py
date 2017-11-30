@@ -58,13 +58,12 @@ def show_roku_apps():
 	                    "text": app.name,
 	                    "type": "button",
 	                    "value": app.name
-	                }for app in apps
+	                } for app in apps
 	            ],
 	            "callback_id": "app"
         	} for apps in chunk_list(roku.apps, 5)
     	]
 	)
-
 
 @app.route('/command', methods=['POST'])
 def command_roku():
