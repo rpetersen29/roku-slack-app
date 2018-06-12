@@ -9,10 +9,9 @@ slack_token = os.environ["SLACK_API_TOKEN"]
 sc = SlackClient(slack_token)
 
 def discover_roku():
-	roku = None
-	while not roku:
-		rokus = Roku.discover(timeout=10)
-		roku = rokus[0]
+	# this gives an 'IndexError: list index out of range' error if no roku is found
+	# TODO: handle this better
+	roku = Roku.discover(timeout=10)
 	print(roku)
 	return roku
 
